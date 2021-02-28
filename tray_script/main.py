@@ -4,7 +4,7 @@ import os
 from datetime import timedelta, date
 
 
-tray_tracker = './tray_tracker.xlsm'
+tray_tracker = './TrayTrackerColors.xlsm'
 
 years = {x: str(x) for x in range(2021, 2030+1)}
 months = {0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June',
@@ -34,12 +34,12 @@ def main():
     xw.App(visible=False)
     excel_tray_tracker = xw.Book(tray_tracker)
     app = xw.apps.active
-    start = date(2022, 1, 1)
-    end = date(2031, 1, 1)
+    start = date(2021, 3, 1)
+    end = date(2021, 4, 1)
     for current_date in yield_dates(start, end):
         s = current_date.split()
         print(s)
-        for i in range(20):
+        for i in range(19, -1, -1):
             current_sheet = excel_tray_tracker.sheets[i]
             current_sheet.range('D2').value = s[0]
             current_sheet.range('D3').value = "'" + s[1] + ", " + s[3] + ", " + s[4]
