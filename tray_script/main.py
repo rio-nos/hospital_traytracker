@@ -31,7 +31,7 @@ def yield_dates(start, end):
 
 
 def main():
-    make_directories()
+    # make_directories()
     xw.App(visible=False)
     excel_tray_tracker = xw.Book(tray_tracker)
     app = xw.apps.active
