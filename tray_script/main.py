@@ -4,7 +4,7 @@ import os
 from datetime import timedelta, date
 
 
-tray_tracker = './TrayTrackerColors.xlsm'
+tray_tracker = './TrayTracker.xlsm'
 
 years = {x: str(x) for x in range(2021, 2021+1)}
 months = {0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June',
@@ -35,7 +35,7 @@ def main():
     xw.App(visible=False)
     excel_tray_tracker = xw.Book(tray_tracker)
     app = xw.apps.active
-    start = date(2021, 3, 1)
+    start = date(2021, 3, 2)
     end = date(2021, 4, 1)
     for current_date in yield_dates(start, end):
         s = current_date.split()
