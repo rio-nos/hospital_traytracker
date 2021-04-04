@@ -34,8 +34,8 @@ def main():
     xw.App(visible=False)
     excel_tray_tracker = xw.Book(tray_tracker)
     app = xw.apps.active
-    start = date(2021, 3, 1)
-    end = date(2021, 4, 1)
+    start = date(2021, 4, 1)
+    end = date(2021, 5, 1)
     for current_date in yield_dates(start, end):
         s = current_date.split()
         print(s)
