@@ -32,23 +32,26 @@ def yield_dates(start, end):
 
 
 def main():
+    print(f'Opening {tray_tracker}')
     # make_directories()
     xw.App(visible=False)
     excel_tray_tracker = xw.Book(tray_tracker)
     app = xw.apps.active
-    start = date(2021, 3, 2)
-    end = date(2021, 4, 1)
+    start = date(2021, 4, 9)
+    end = date(2021, 5, 1)
     for current_date in yield_dates(start, end):
         s = current_date.split()
         print(s)
-        for i in range(19, -1, -1):
+        for i in range(20):
             current_sheet = excel_tray_tracker.sheets[i]
+            current_sheet.range('E8').value = 'Initials'
             current_sheet.range('D2').value = s[0]
             current_sheet.range('D3').value = "'" + s[1] + ", " + s[3] + ", " + s[4]
         new_directory = './' + s[-1] + '/' + s[2] + '-' + s[1] + '/'
         new_filename = s[2]+'-'+s[3]+'-'+s[4]+'.xlsm'
         excel_tray_tracker.save(new_directory + new_filename)
-    sleep(3)
+        # excel_tray_tracker.save('NewTrayTracker.xlsm')
+    sleep(1.5)
     app.quit()
     app.kill()
 
