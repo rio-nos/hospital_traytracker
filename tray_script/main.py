@@ -1,7 +1,8 @@
+from datetime import timedelta, date
 from time import sleep
 import xlwings as xw
+import sys
 import os
-from datetime import timedelta, date
 
 
 tray_tracker = './TrayTracker.xlsm'
@@ -53,5 +54,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) == 1:
+        print("Usage [python3 main.py mm/dd/yyyy mm/dd/yyyy (-d)]: no date range given")
+    elif len(sys.argv) == 4:
+        print("Creating excel files of dates {} to {}".format(sys.argv[1], sys.argv[2]))
 
